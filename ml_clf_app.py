@@ -85,16 +85,16 @@ from sklearn.model_selection import GridSearchCV, RandomizedSearchCV, cross_val_
 #image = Image.open('Image_Clariant.png')
 st.set_page_config(page_title="Classification App | v1.0",
                    layout="wide",
-                   page_icon='https://www.clariant.com/images/clariant-logo-small.svg',                   
+                   #page_icon=               
                    initial_sidebar_state="collapsed")
-#st.sidebar.image(image, use_column_width='auto') 
 #----------------------------------------
-st.title("ML | Classification App | v1.0")
-st.markdown('Created by | <a href="mailto:avijit.chakraborty@clariant.com">Avijit Chakraborty</a>', 
+st.title("Machine Learning CookBook | v1.0")
+st.markdown('Created by | <a href="mailto:avijit.mba18@gmail.com">Avijit Chakraborty</a>', 
             unsafe_allow_html=True)
-st.info('*Disclaimer : This app is created for internal use, unauthorized uses or copying is strictly prohibited.*', icon="ℹ️")
+st.info('**Disclaimer : Unauthorized uses or copying of the app is strictly prohibited.**', icon="ℹ️")
 #----------------------------------------
 # Set the background image
+st.divider()
 #---------------------------------------------------------------------------------------------------------------------------------
 stats_expander = st.expander("**Knowledge**", expanded=False)
 with stats_expander: 
@@ -107,9 +107,9 @@ st.divider()
 #---------------------------------------------------------------------------------------------------------------------------------
 ### Feature Import
 #---------------------------------------------------------------------------------------------------------------------------------
-st.sidebar.header("1. Input Data", divider='blue')
-st.sidebar.info('Please upload the data to start the application.', icon="ℹ️")
-data_source = st.sidebar.radio("**1.1 Select Data Source**", ["Local Machine", "Server Path"])
+st.sidebar.header("Contents", divider='blue')
+st.sidebar.info('Please choose from the following options and follow the instructions to start the application.', icon="ℹ️")
+data_source = st.sidebar.radio("**:blue[Select Data Source]**", ["Local Machine", "Server Path"])
 #---------------------------------------------------------------------------------------------------------------------------------
 
 if data_source == "Local Machine" :
