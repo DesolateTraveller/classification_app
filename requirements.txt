@@ -14,7 +14,7 @@ holidays
 scipy
 streamlit-aggrid
 streamlit-extras
-
+sweetviz
 
 
 
