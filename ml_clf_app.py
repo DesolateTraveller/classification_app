@@ -88,7 +88,7 @@ st.set_page_config(page_title="Classification App | v1.0",
                    #page_icon=               
                    initial_sidebar_state="collapsed")
 #----------------------------------------
-st.title("Machine Learning CookBook | v1.0")
+st.title("ML | Classification App | v1.0")
 st.markdown('Created by | <a href="mailto:avijit.mba18@gmail.com">Avijit Chakraborty</a>', 
             unsafe_allow_html=True)
 st.info('**Disclaimer : Unauthorized uses or copying of the app is strictly prohibited.**', icon="ℹ️")
