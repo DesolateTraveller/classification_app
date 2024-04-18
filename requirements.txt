@@ -15,6 +15,5 @@ scipy
 streamlit-aggrid
 streamlit-extras
 sweetviz
-optuna
-optuna.integration.lightgbm
+
 
