@@ -10,11 +10,9 @@ scikit-learn
 statsmodels
 xgboost
 pygwalker
-optuna
 shap
 holidays
 scipy
-tqdm
 streamlit-aggrid
 streamlit-extras
 ydata-profiling
