@@ -60,7 +60,7 @@ from sklearn.ensemble import ExtraTreesClassifier
 from sklearn.ensemble import GradientBoostingClassifier
 from xgboost import XGBClassifier
 from xgboost import plot_importance
-import optuna.integration.lightgbm as lgb
+#import optuna.integration.lightgbm as lgb
 from sklearn.metrics import classification_report,confusion_matrix
 #----------------------------------------
 # Model Performance
