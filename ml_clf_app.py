@@ -91,7 +91,7 @@ st.set_page_config(page_title="Classification App | v1.0",
 st.title("ML | Classification App | v1.0")
 st.markdown('Created by | <a href="mailto:avijit.mba18@gmail.com">Avijit Chakraborty</a>', 
             unsafe_allow_html=True)
-st.info('**Disclaimer : :blue[Thank you for visiting the app] | Unauthorized uses or copying of the app is strictly prohibited | Please expand the below :blue[Knowledge] tab to know more and click the :blue[sidebar] to follow the instructions to start the applications.**', icon="ℹ️")
+st.info('**Disclaimer : :blue[Thank you for visiting the app] | Unauthorized uses or copying of the app is strictly prohibited | Click the :blue[sidebar] to follow the instructions to start the applications.**', icon="ℹ️")
 #----------------------------------------
 # Set the background image
 st.divider()
@@ -114,7 +114,7 @@ data_source = st.sidebar.radio("**:blue[Select Data Source]**", ["Local Machine"
 
 if data_source == "Local Machine" :
     
-    file1 = st.sidebar.file_uploader("**1.2 Choose a file**",
+    file1 = st.sidebar.file_uploader("**:blue[Choose a file]**",
                                 type=["xlsx","csv"],
                                 accept_multiple_files=True,
                                 key=0)
