@@ -145,10 +145,12 @@ if data_source == "Local Machine" :
             
             st.sidebar.subheader("2. Variables Selection", divider='blue')
             target_variable = st.sidebar.multiselect("**2.1 Target (Dependent) Variable**", df.columns)
-            #feature_columns = st.sidebar.multiselect("**2.2 Independent Variables**", df.columns)  
+            #feature_columns = st.sidebar.multiselect("**2.2 Independent Variables**", df.columns)
+
+            if st.button(":blue[Proceed]"):
 
 #---------------------------------------------------------------------------------------------------------------------------------
-            tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9 = st.tabs(["**Information**",
+              tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9 = st.tabs(["**Information**",
                                                                             "**Visualizations**",
                                                                             "**Cleaning**",
                                                                             "**Transformation**",
@@ -162,7 +164,7 @@ if data_source == "Local Machine" :
 ### Informations
 #---------------------------------------------------------------------------------------------------------------------------------
 
-            with tab1:
+              with tab1:
                 st.subheader("**Data Analysis**",divider='blue')
 
                 col1, col2, col3, col4, col5, col6 = st.columns(6)
@@ -183,12 +185,7 @@ if data_source == "Local Machine" :
 ### Visualizations
 #---------------------------------------------------------------------------------------------------------------------------------
 
-            with tab2: 
-
-                #stats_expander = st.expander("**Visualization**", expanded=False)
-                #with stats_expander: 
-                    #dabl.plot(df, 'target_variable')
-                    #st.pyplot()
+              with tab2: 
 
                 st.subheader("Visualization | Playground",divider='blue')
                     
@@ -199,7 +196,7 @@ if data_source == "Local Machine" :
 ### Feature Cleaning
 #---------------------------------------------------------------------------------------------------------------------------------
 
-            with tab3:
+              with tab3:
                 
                 st.subheader("Missing Values Check & Treatment",divider='blue')
                 col1, col2 = st.columns((0.2,0.8))
@@ -360,7 +357,7 @@ if data_source == "Local Machine" :
 ### Feature Transformation
 #---------------------------------------------------------------------------------------------------------------------------------
 
-            with tab4:
+              with tab4:
                 
                     st.subheader("Feature Encoding",divider='blue')
 
@@ -408,7 +405,7 @@ if data_source == "Local Machine" :
 ### Feature Selection
 #---------------------------------------------------------------------------------------------------------------------------------
 
-            with tab5:
+              with tab5:
 
                 st.subheader("Feature Selection:",divider='blue')  
                 #target_variable = st.multiselect("**Target (Dependent) Variable**", df.columns)
@@ -503,7 +500,7 @@ if data_source == "Local Machine" :
 ### Model Development & Tuning
 #---------------------------------------------------------------------------------------------------------------------------------
 
-            with tab6:
+              with tab6:
 
                 col1, col2, col3 = st.columns(3)   
                  
@@ -678,7 +675,7 @@ if data_source == "Local Machine" :
 ### Model Performance
 #---------------------------------------------------------------------------------------------------------------------------------
                
-            with tab7:
+              with tab7:
 
                 col1, col2, col3, col4 = st.columns((0.3,0.3,0.5,0.5)) 
 
@@ -763,7 +760,7 @@ if data_source == "Local Machine" :
                             st.write(pd.DataFrame(test_report).transpose().head(6),use_container_width = False)
  
 
-                with col3:
+                  with col3:
                     with st.container():
 
                                     if algorithms == 'logistic_regression':
@@ -1136,7 +1133,7 @@ if data_source == "Local Machine" :
 ### Model Validation
 #---------------------------------------------------------------------------------------------------------------------------------
 
-            with tab8:
+              with tab8:
 
                 st.subheader("Cross Validation", divider='blue')
                 col1, col2 = st.columns(2) 
