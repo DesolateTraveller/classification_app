@@ -176,7 +176,7 @@ if data_source == "Local Machine" :
 #---------------------------------------------------------------------------------------------------------------------------------
 
                 with tab1:
-                    st.subheader("**Data Analysis**",divider='blue')
+                    st.subheader("**Characteristics**",divider='blue')
 
                     col1, col2, col3, col4, col5, col6 = st.columns(6)
 
