@@ -118,7 +118,7 @@ if data_source == "Local Machine" :
                                 type=["xlsx","csv"],
                                 accept_multiple_files=True,
                                 key=0)
-    st.sidebar.divider()       
+    #st.sidebar.divider()       
     if file1 is not None:
         df = pd.DataFrame()
         for file1 in file1:
@@ -153,10 +153,10 @@ if data_source == "Local Machine" :
                             'random_forest_classification', 
                             'gradient_boosting',
                             'xtreme_gradient_boosting']
-            algorithms = st.selectbox("**Choose an algorithm for predictions**", options=classifiers)
+            algorithms = st.sidebar.selectbox("**Choose an algorithm for predictions**", options=classifiers)
 
             classifier_type = ['binary','multi_class']
-            classifier_clv = st.selectbox("**Choose the type of classifiers**", options=classifier_type)   
+            classifier_clv = st.sidebar.selectbox("**Choose the type of classifiers**", options=classifier_type)   
 
             if st.sidebar.button(":blue[Proceed]"):
 
