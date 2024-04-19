@@ -341,12 +341,12 @@ if data_source == "Local Machine" :
                             IQR = Q3 - Q1
                             threshold = 1.5
 
-                        # Cap outliers
-                        df[column] = np.where(df[column] < Q1 - threshold * IQR, Q1 - threshold * IQR, df[column])
-                        df[column] = np.where(df[column] > Q3 + threshold * IQR, Q3 + threshold * IQR, df[column])
+                            # Cap outliers
+                            df[column] = np.where(df[column] < Q1 - threshold * IQR, Q1 - threshold * IQR, df[column])
+                            df[column] = np.where(df[column] > Q3 + threshold * IQR, Q3 + threshold * IQR, df[column])
 
-                        st.success("Outliers capped. Preview of the capped dataset:")
-                        st.write(df.head())
+                          st.success("Outliers capped. Preview of the capped dataset:")
+                          st.write(df.head())
 
 #---------------------------------------------------------------------------------------------------------------------------------
 ### Feature Encoding
