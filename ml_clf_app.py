@@ -147,7 +147,7 @@ if data_source == "Local Machine" :
             target_variable = st.sidebar.multiselect("**2.1 Target (Dependent) Variable**", df.columns)
             #feature_columns = st.sidebar.multiselect("**2.2 Independent Variables**", df.columns)
 
-            if st.button(":blue[Proceed]"):
+            if st.sidebar.button(":blue[Proceed]"):
 
 #---------------------------------------------------------------------------------------------------------------------------------
                 tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9 = st.tabs(["**Information**",
