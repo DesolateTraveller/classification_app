@@ -126,12 +126,12 @@ if data_source == "Local Machine" :
             #st.subheader("Preview of the Input Dataset :")
             #st.write(df.head(3))
 
-# Dataset preview
+            # Dataset preview
             if st.sidebar.checkbox("**Preview Dataset**"):
                 number = st.sidebar.slider("**Select No of Rows**",0,df.shape[0],3,5)
                 st.subheader("**Preview of the Input Dataset :**",divider='blue')
                 st.write(df.head(number))
-            st.sidebar.divider()   
+            #st.sidebar.divider()   
 
             if st.sidebar.checkbox("**🗑️ Feature Drop**"):
                 feature_to_drop = st.sidebar.selectbox("**Select Feature to Drop**", df.columns)
@@ -264,58 +264,58 @@ if data_source == "Local Machine" :
                                 # Download link for treated data
                                 st.download_button("**Download Treated Data**", cleaned_df.to_csv(index=False), file_name="treated_data.csv")
 
-                #with col2:
+                    #with col2:
 
-                st.subheader("Duplicate Values Check",divider='blue') 
-                if st.checkbox("Show Duplicate Values"):
-                    if missing_values.empty:
-                        st.table(df[df.duplicated()].head(2))
-                    else:
-                        st.table(cleaned_df[cleaned_df.duplicated()].head(2))
+                    st.subheader("Duplicate Values Check",divider='blue') 
+                    if st.checkbox("Show Duplicate Values"):
+                        if missing_values.empty:
+                            st.table(df[df.duplicated()].head(2))
+                        else:
+                            st.table(cleaned_df[cleaned_df.duplicated()].head(2))
 
-                #with col4:
+                    #with col4:
 
                     #x_column = st.selectbox("Select x-axis column:", options = df.columns.tolist()[0:], index = 0)
                     #y_column = st.selectbox("Select y-axis column:", options = df.columns.tolist()[0:], index = 1)
                     #chart = alt.Chart(df).mark_boxplot(extent='min-max').encode(x=x_column,y=y_column)
                     #st.altair_chart(chart, theme=None, use_container_width=True)  
 
-                st.subheader("Outliers Check & Treatment",divider='blue')
-                @st.cache_data(ttl="2h")
-                def check_outliers(data):
-                    # Assuming we're checking for outliers in numerical columns
-                    numerical_columns = data.select_dtypes(include=[np.number]).columns
-                    outliers = pd.DataFrame(columns=['Column', 'Number of Outliers'])
+                    st.subheader("Outliers Check & Treatment",divider='blue')
+                    @st.cache_data(ttl="2h")
+                    def check_outliers(data):
+                        # Assuming we're checking for outliers in numerical columns
+                        numerical_columns = data.select_dtypes(include=[np.number]).columns
+                        outliers = pd.DataFrame(columns=['Column', 'Number of Outliers'])
 
-                    for column in numerical_columns:
-                        Q1 = data[column].quantile(0.25)
-                        Q3 = data[column].quantile(0.75)
-                        IQR = Q3 - Q1
+                        for column in numerical_columns:
+                            Q1 = data[column].quantile(0.25)
+                            Q3 = data[column].quantile(0.75)
+                            IQR = Q3 - Q1
 
-                        # Define a threshold for outliers
-                        threshold = 1.5
+                            # Define a threshold for outliers
+                            threshold = 1.5
 
-                        # Find indices of outliers
-                        outliers_indices = ((data[column] < Q1 - threshold * IQR) | (data[column] > Q3 + threshold * IQR))
+                            # Find indices of outliers
+                            outliers_indices = ((data[column] < Q1 - threshold * IQR) | (data[column] > Q3 + threshold * IQR))
 
-                        # Count the number of outliers
-                        num_outliers = outliers_indices.sum()
-                        outliers = outliers._append({'Column': column, 'Number of Outliers': num_outliers}, ignore_index=True)
+                            # Count the number of outliers
+                            num_outliers = outliers_indices.sum()
+                            outliers = outliers._append({'Column': column, 'Number of Outliers': num_outliers}, ignore_index=True)
 
-                    return outliers
+                        return outliers
                 
-                if missing_values.empty:
-                    df = df.copy()
-                else:
-                    df = cleaned_df.copy()
+                    if missing_values.empty:
+                        df = df.copy()
+                    else:
+                        df = cleaned_df.copy()
 
-                col1, col2 = st.columns((0.2,0.8))
+                    col1, col2 = st.columns((0.2,0.8))
 
-                with col1:
-                    # Check for outliers
-                    outliers = check_outliers(df)
+                    with col1:
+                        # Check for outliers
+                        outliers = check_outliers(df)
 
-                    # Display results
+                        # Display results
                     if outliers.empty:
                         st.success("No outliers found!")
                     else:
@@ -323,30 +323,30 @@ if data_source == "Local Machine" :
                         st.write("**Number of outliers:")
                         st.table(outliers)
                     
-                with col2:
-                    # Treatment options
-                    treatment_option = st.selectbox("**Select a treatment option:**", ["Cap Outliers","Drop Outliers", ])
+                    with col2:
+                        # Treatment options
+                        treatment_option = st.selectbox("**Select a treatment option:**", ["Cap Outliers","Drop Outliers", ])
 
-                    # Perform treatment based on user selection
-                    if treatment_option == "Drop Outliers":
-                        df = df[~outliers['Column'].isin(outliers[outliers['Number of Outliers'] > 0]['Column'])]
-                        st.success("Outliers dropped. Preview of the cleaned dataset:")
-                        st.write(df.head())
-
-                    elif treatment_option == "Cap Outliers":
-                        df = df.copy()
-                        for column in outliers['Column'].unique():
-                            Q1 = df[column].quantile(0.25)
-                            Q3 = df[column].quantile(0.75)
-                            IQR = Q3 - Q1
-                            threshold = 1.5
-
-                            # Cap outliers
-                            df[column] = np.where(df[column] < Q1 - threshold * IQR, Q1 - threshold * IQR, df[column])
-                            df[column] = np.where(df[column] > Q3 + threshold * IQR, Q3 + threshold * IQR, df[column])
-
-                            st.success("Outliers capped. Preview of the capped dataset:")
+                        # Perform treatment based on user selection
+                        if treatment_option == "Drop Outliers":
+                            df = df[~outliers['Column'].isin(outliers[outliers['Number of Outliers'] > 0]['Column'])]
+                            st.success("Outliers dropped. Preview of the cleaned dataset:")
                             st.write(df.head())
+
+                        elif treatment_option == "Cap Outliers":
+                            df = df.copy()
+                            for column in outliers['Column'].unique():
+                                Q1 = df[column].quantile(0.25)
+                                Q3 = df[column].quantile(0.75)
+                                IQR = Q3 - Q1
+                                threshold = 1.5
+
+                                # Cap outliers
+                                df[column] = np.where(df[column] < Q1 - threshold * IQR, Q1 - threshold * IQR, df[column])
+                                df[column] = np.where(df[column] > Q3 + threshold * IQR, Q3 + threshold * IQR, df[column])
+
+                                st.success("Outliers capped. Preview of the capped dataset:")
+                                st.write(df.head())
 
 #---------------------------------------------------------------------------------------------------------------------------------
 ### Feature Encoding
@@ -1203,4 +1203,3 @@ if data_source == "Local Machine" :
 #---------------------------------------------------------------------------------------------------------------------------------
 ### Model Cross Check
 #---------------------------------------------------------------------------------------------------------------------------------
-
