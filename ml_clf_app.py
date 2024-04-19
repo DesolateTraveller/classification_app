@@ -143,9 +143,20 @@ if data_source == "Local Machine" :
                         st.session_state.df = df.drop(feature_to_drop, axis=1)
             st.sidebar.divider() 
             
-            st.sidebar.subheader("2. Variables Selection", divider='blue')
+            st.sidebar.subheader("Variables", divider='blue')
             target_variable = st.sidebar.multiselect("**2.1 Target (Dependent) Variable**", df.columns)
             #feature_columns = st.sidebar.multiselect("**2.2 Independent Variables**", df.columns)
+
+            st.sidebar.subheader("Algorithm",divider='blue')          
+            classifiers = ['logistic_regression',
+                            'decision_tree_classification', 
+                            'random_forest_classification', 
+                            'gradient_boosting',
+                            'xtreme_gradient_boosting']
+            algorithms = st.selectbox("**Choose an algorithm for predictions**", options=classifiers)
+
+            classifier_type = ['binary','multi_class']
+            classifier_clv = st.selectbox("**Choose the type of classifiers**", options=classifier_type)   
 
             if st.sidebar.button(":blue[Proceed]"):
 
@@ -506,7 +517,7 @@ if data_source == "Local Machine" :
 
                 with tab6:
 
-                    col1, col2, col3 = st.columns(3)   
+                    col1, col2 = st.columns(2)   
                  
                     with col1:
                      
@@ -515,18 +526,7 @@ if data_source == "Local Machine" :
                         random_state = st.number_input("**Random State**", 0, 100, 42)
                         n_jobs = st.number_input("**Parallel Processing (n_jobs)**", -10, 10, 1)     
 
-                    with col2: 
-                        st.subheader("Choose an Algorithm",divider='blue')          
-                        classifiers = ['logistic_regression',
-                                        'decision_tree_classification', 
-                                        'random_forest_classification', 
-                                        'gradient_boosting',
-                                        'xtreme_gradient_boosting']
-                        algorithms = st.selectbox("**Choose an algorithm for predictions**", options=classifiers)
-
-                        classifier_type = ['binary',
-                                        'multi_class']
-                        classifier_clv = st.selectbox("**Choose the type of classifiers**", options=classifier_type)   
+                    #with col2: 
 
                         progress_text = "Prediction in progress. please wait."
                         my_bar = st.progress(0, text=progress_text)
@@ -543,7 +543,7 @@ if data_source == "Local Machine" :
                         X_train, X_test, train_labels, test_labels = train_test_split(X, y, test_size=test_size/100, random_state=random_state)
     #----------------------------------------
 
-                    with col3:
+                    with col2:
                     #st.subheader("3. Tune the Hyperparameters")
 
                         if algorithms == 'logistic_regression':
