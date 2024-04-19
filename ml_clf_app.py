@@ -133,7 +133,7 @@ if data_source == "Local Machine" :
                 st.write(df.head(number))
             #st.sidebar.divider()   
 
-            if st.sidebar.checkbox("**🗑️ Feature Drop**"):
+            if st.sidebar.checkbox("**🗑️:blue[Feature Drop]**"):
                 feature_to_drop = st.sidebar.selectbox("**Select Feature to Drop**", df.columns)
                 #df_dropped = df.drop(columns=[feature_to_drop])
                 if feature_to_drop:
@@ -144,7 +144,7 @@ if data_source == "Local Machine" :
             st.sidebar.divider() 
             
             st.sidebar.subheader("Variables", divider='blue')
-            target_variable = st.sidebar.multiselect("**2.1 Target (Dependent) Variable**", df.columns)
+            target_variable = st.sidebar.multiselect("**:blue[Target (Dependent) Variable]**", df.columns)
             #feature_columns = st.sidebar.multiselect("**2.2 Independent Variables**", df.columns)
 
             st.sidebar.subheader("Algorithm",divider='blue')          
@@ -153,10 +153,10 @@ if data_source == "Local Machine" :
                             'random_forest_classification', 
                             'gradient_boosting',
                             'xtreme_gradient_boosting']
-            algorithms = st.sidebar.selectbox("**Choose an algorithm for predictions**", options=classifiers)
+            algorithms = st.sidebar.selectbox("**:blue[Choose an algorithm for predictions]**", options=classifiers)
 
             classifier_type = ['binary','multi_class']
-            classifier_clv = st.sidebar.selectbox("**Choose the type of classifiers**", options=classifier_type)   
+            classifier_clv = st.sidebar.selectbox("**:blue[Choose the type of classifiers]**", options=classifier_type)   
 
             if st.sidebar.button(":blue[Proceed]"):
 
