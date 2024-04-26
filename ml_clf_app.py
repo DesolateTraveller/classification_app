@@ -144,7 +144,7 @@ if data_source == "Local Machine" :
             st.sidebar.divider() 
             
             st.sidebar.subheader("Variables", divider='blue')
-            target_variable = st.sidebar.multiselect("**:blue[Target (Dependent) Variable]**", df.columns)
+            target_variable = st.sidebar.selectbox("**:blue[Target (Dependent) Variable]**", df.columns)
             #feature_columns = st.sidebar.multiselect("**2.2 Independent Variables**", df.columns)
 
             st.sidebar.subheader("Algorithm",divider='blue')          
