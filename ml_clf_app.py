@@ -529,7 +529,7 @@ if data_source == "Local Machine" :
                     with col2: 
 
                         st.subheader("Algorithm",divider='blue')
-                        st.info(f'Selected Algorithm **:blue[target_variable]**')
+                        st.info('Selected Algorithm **:blue['algorithms']**')
                       
                         #progress_text = "Prediction in progress. please wait."
                         #my_bar = st.progress(0, text=progress_text)
