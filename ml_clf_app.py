@@ -517,7 +517,7 @@ if data_source == "Local Machine" :
 
                 with tab6:
 
-                    col1, col2, col3 = st.columns((0.2,0.2,0.7))   
+                    col1, col2, col3 = st.columns((0.3,0.3,0.6))   
                  
                     with col1:
                      
@@ -529,7 +529,9 @@ if data_source == "Local Machine" :
                     with col2: 
 
                         st.subheader("Algorithm",divider='blue')
-                        st.info(f'Selected Algorithm : **blue{algorithms}**')
+                        st.info(f'Selected Algorithm : **{algorithms}**')
+                        st.info(f'Target Variable : **{target_variable}**')
+                        st.info(f'Target Variable Type : **{classifier_clv}**')
                       
                         #progress_text = "Prediction in progress. please wait."
                         #my_bar = st.progress(0, text=progress_text)
