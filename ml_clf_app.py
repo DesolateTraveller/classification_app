@@ -517,7 +517,7 @@ if data_source == "Local Machine" :
 
                 with tab6:
 
-                    col1, col2 = st.columns((0.2,0.7))   
+                    col1, col2, col3 = st.columns((0.2,0.2,0.7))   
                  
                     with col1:
                      
@@ -529,7 +529,7 @@ if data_source == "Local Machine" :
                     with col2: 
 
                         st.subheader("Algorithm",divider='blue')
-                        st.info(f'Selected Algorithm : **blue[{algorithms}]**')
+                        st.info(f'Selected Algorithm : **blue{algorithms}**')
                       
                         #progress_text = "Prediction in progress. please wait."
                         #my_bar = st.progress(0, text=progress_text)
@@ -546,7 +546,7 @@ if data_source == "Local Machine" :
                         X_train, X_test, train_labels, test_labels = train_test_split(X, y, test_size=test_size/100, random_state=random_state)
     #----------------------------------------
 
-                    with col2:
+                    with col3:
                     #st.subheader("3. Tune the Hyperparameters")
 
                         if algorithms == 'logistic_regression':
