@@ -517,7 +517,7 @@ if data_source == "Local Machine" :
 
                 with tab6:
 
-                    col1, col2 = st.columns((0.3,0.7))   
+                    col1, col2 = st.columns((0.2,0.7))   
                  
                     with col1:
                      
@@ -526,15 +526,18 @@ if data_source == "Local Machine" :
                         random_state = st.number_input("**Random State**", 0, 100, 42)
                         n_jobs = st.number_input("**Parallel Processing (n_jobs)**", -10, 10, 1)     
 
-                    #with col2: 
+                    with col2: 
 
-                        progress_text = "Prediction in progress. please wait."
-                        my_bar = st.progress(0, text=progress_text)
+                        st.subheader("Algorithm",divider='blue')
+                        st.info(f'Selected Algorithm **:blue[target_variable]**')
+                      
+                        #progress_text = "Prediction in progress. please wait."
+                        #my_bar = st.progress(0, text=progress_text)
                         #st.button("Predict", key='Classify')
                         #with st.spinner():
-                        for percent_complete in range(100):
-                            time.sleep(0.1)
-                            my_bar.progress(percent_complete + 1, text=progress_text)
+                        #for percent_complete in range(100):
+                            #time.sleep(0.1)
+                            #my_bar.progress(percent_complete + 1, text=progress_text)
 
     #----------------------------------------
                         # Split the data into train and test sets
