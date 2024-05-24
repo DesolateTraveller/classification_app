@@ -83,7 +83,7 @@ from sklearn.model_selection import GridSearchCV, RandomizedSearchCV, cross_val_
 #---------------------------------------------------------------------------------------------------------------------------------
 #import custom_style()
 #image = Image.open('Image_Clariant.png')
-st.set_page_config(page_title="Classification App | v1.0",
+st.set_page_config(page_title="Classification App",
                    layout="wide",
                    #page_icon=               
                    initial_sidebar_state="collapsed")
