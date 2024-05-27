@@ -82,7 +82,6 @@ from sklearn.model_selection import GridSearchCV, RandomizedSearchCV, cross_val_
 ### Title and description for your Streamlit app
 #---------------------------------------------------------------------------------------------------------------------------------
 #import custom_style()
-#image = Image.open('Image_Clariant.png')
 st.set_page_config(page_title="Classification App",
                    layout="wide",
                    #page_icon=               
