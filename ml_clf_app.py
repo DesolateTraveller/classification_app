@@ -170,7 +170,6 @@ if data_source == "Local Machine" :
                                                                             "**Performance**",
                                                                             "**Validation**",
                                                                             "**Cross-Check**"])
-
 #---------------------------------------------------------------------------------------------------------------------------------
 ### Informations
 #---------------------------------------------------------------------------------------------------------------------------------
@@ -199,7 +198,7 @@ if data_source == "Local Machine" :
                 with tab2: 
 
                     st.subheader("Visualization | Playground",divider='blue')
-                    
+        
                     pyg_html = pyg.to_html(df)
                     components.html(pyg_html, height=1000, scrolling=True)
 
