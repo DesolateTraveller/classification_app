@@ -16,5 +16,6 @@ streamlit-aggrid
 streamlit-extras
 sweetviz
 altair
+optuna
 
 
