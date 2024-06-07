@@ -15,5 +15,6 @@ scipy
 streamlit-aggrid
 streamlit-extras
 sweetviz
+altair
 
 
